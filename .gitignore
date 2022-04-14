@@ -1,5 +1,4 @@
-img_env/
 .env
 uploader_page/static/admin/
-media/
+./media/
 uploader_page/media
