@@ -1,0 +1,27 @@
+{% extends "uploader_page/base.html" %}
+
+{% block img_input %}
+
+<div id="input-card">
+  <h2>Upload your image</h2>
+  <p>File should be Jpeg, Png...</p>
+
+  
+    <form class="img-form" action="upload" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+    </form>
+  
+    <p>or</p>
+
+    <form class="img-form" id="chose-file" action="upload" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+    </form>
+
+{% if img_obj %}
+  <h3>Succesfully uploaded : {{img_obj.title}}</h3>
+  <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:150px">
+{% endif %}
+</div>
+{% endblock img_input %}
