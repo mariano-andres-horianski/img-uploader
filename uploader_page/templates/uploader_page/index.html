@@ -7,17 +7,24 @@
   <p>File should be Jpeg, Png...</p>
 
   
-    <form class="img-form" action="upload" method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-    </form>
+    <div id="drag-drop">
+      <form class="img-form" action="upload" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+      </form>
+    </div>
   
     <p>or</p>
 
-    <form class="img-form" id="chose-file" action="upload" method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-    </form>
+    <div id="choose-container">
+      <button class="choose-button">
+        Choose a file
+      </button>
+      <form class="img-form" id="chose-file" action="upload" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+      </form>
+    </div>
 
 {% if img_obj %}
   <h3>Succesfully uploaded : {{img_obj.title}}</h3>
