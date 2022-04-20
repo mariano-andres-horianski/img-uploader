@@ -7,12 +7,10 @@
   <p>File should be Jpeg, Png...</p>
 
   
-    <div id="drag-drop">
-      <form class="img-form" action="upload" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-      </form>
-    </div>
+    <form class="img-form" id="drag-drop" action="upload" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+    </form>
   
     <p>or</p>
 

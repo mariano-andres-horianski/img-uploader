@@ -9,17 +9,19 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin-top: 160px;
     border-radius: 8px;
+    font-family: sans-serif;
 }
 body{
     background-color: #fbf6f6;
 }
 .img-form{
-    height: 100px;
+    height: 100%;
     margin-left: 10px;
     margin-right: 10px;
 }
 .img-form p{
     height: 100%;
+    margin: 0%;
 }
 .img-input{
     opacity: 0;
