@@ -10,6 +10,7 @@
     <form class="img-form" id="drag-drop" action="upload" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.as_p }}
+      <button id="submit-drag-drop" name="submit" style="display: none;"></button>
     </form>
   
     <p>or</p>
@@ -21,6 +22,7 @@
       <form class="img-form" id="chose-file" action="upload" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        <button id="submit-choose" name="submit" style="display: none;"></button>
       </form>
     </div>
 
@@ -30,3 +32,4 @@
 {% endif %}
 </div>
 {% endblock img_input %}
+
