@@ -11,3 +11,5 @@ choose_button.onchange = () => {submit_execution(submit_button_2)};
 function submit_execution(submit_button){
     submit_button.click();
 }
+
+console.log("test change")

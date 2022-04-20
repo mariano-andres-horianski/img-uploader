@@ -1,19 +1,24 @@
 {% extends "uploader_page/base.html" %}
 
+{% load static %}
 {% block img_input %}
 
 <div id="input-card">
-  <h2>Upload your image</h2>
-  <p>File should be Jpeg, Png...</p>
+  <h2 style="color: #4F4F4F">Upload your image</h2>
+  <p style="color:#828282">File should be Jpeg, Png...</p>
 
   
-    <form class="img-form" id="drag-drop" action="upload" method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button id="submit-drag-drop" name="submit" style="display: none;"></button>
-    </form>
-  
-    <p>or</p>
+    <div id="drag-drop-container">
+      <form class="img-form" id="drag-drop" action="upload" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button id="submit-drag-drop" name="submit" style="display: none;"></button>
+      </form>
+      <img id="drag-drop-image" src="{% static 'images/image.svg' %}">
+      <p id="drag-drop-text" >Drag & Drop your images here</p>
+      
+    </div>
+    <p style="color: #BDBDBD;">or</p>
 
     <div id="choose-container">
       <button class="choose-button">
