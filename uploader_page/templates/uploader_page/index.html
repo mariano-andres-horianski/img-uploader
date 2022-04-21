@@ -3,13 +3,27 @@
 {% load static %}
 {% block img_input %}
 
+{% if img_obj %}
+<div id="input-card">
+  <span class="material-icons" id="check-circle">
+    check_circle
+    </span>
+  <h4 style="margin: 0%;" >Uploaded Successfully! {{img_obj.title}}</h4>
+  <img src="{{ img_obj.image.url}}" alt="connect" id="uploaded-image">
+
+  <input id="url-input" type="text" value="{{ img_obj.image.url }}">
+  <button id="url-button" onclick="copy_to_clipboard()">Copy link</button>
+</div>
+
+{% else %}
+
 <div id="input-card">
   <h2 style="color: #4F4F4F">Upload your image</h2>
   <p style="color:#828282">File should be Jpeg, Png...</p>
 
   
-    <div id="drag-drop-container">
-      <form class="img-form" id="drag-drop" action="upload" method="POST" enctype="multipart/form-data">
+  <div id="drag-drop-container">
+    <form class="img-form" id="drag-drop" action="upload" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button id="submit-drag-drop" name="submit" style="display: none;"></button>
@@ -17,24 +31,22 @@
       <img id="drag-drop-image" src="{% static 'images/image.svg' %}">
       <p id="drag-drop-text" >Drag & Drop your images here</p>
       
-    </div>
-    <p style="color: #BDBDBD;">or</p>
+  </div>
+  <p style="color: #BDBDBD;">or</p>
 
-    <div id="choose-container">
-      <button class="choose-button">
-        Choose a file
-      </button>
-      <form class="img-form" id="chose-file" action="upload" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button id="submit-choose" name="submit" style="display: none;"></button>
-      </form>
-    </div>
+  <div id="choose-container">
+    <button class="choose-button">
+      Choose a file
+    </button>
 
-{% if img_obj %}
-  <h3>Succesfully uploaded : {{img_obj.title}}</h3>
-  <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:150px">
-{% endif %}
+    <form class="img-form" id="chose-file" action="upload" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button id="submit-choose" name="submit" style="display: none;"></button>
+    </form>
+  </div>
+    
 </div>
-{% endblock img_input %}
+{% endif %}
 
+{% endblock img_input %}

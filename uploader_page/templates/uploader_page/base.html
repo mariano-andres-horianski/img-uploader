@@ -7,6 +7,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      
+    {% if img_obj %}
+    <script src="{% static 'js/clipboard.js' %}"></script>
+    {% endif %}
 </head>
 
 <body>
@@ -14,7 +20,10 @@
 
     {% endblock img_input %}
     
+    
+    {% if not img_obj %}
     <script src="{% static 'js/submit.js' %}" ></script>
+    {% endif %}
 </body>
 
 </html>
